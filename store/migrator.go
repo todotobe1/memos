@@ -149,6 +149,7 @@ func (s *Store) preMigrate(ctx context.Context) error {
 	}
 	if err := s.normalizedMigrationHistoryList(ctx); err != nil {
 		return errors.Wrap(err, "failed to normalize migration history list")
+	}
 	return nil
 }
 
