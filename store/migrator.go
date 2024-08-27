@@ -147,8 +147,10 @@ func (s *Store) preMigrate(ctx context.Context) error {
 			return errors.Wrap(err, "failed to upsert migration history")
 		}
 	}
-	if err := s.normalizedMigrationHistoryList(ctx); err != nil {
-		return errors.Wrap(err, "failed to normalize migration history list")
+	if s.Profile.Mode == "prod" {
+		if err := s.normalizedMigrationHistoryList(ctx); err != nil {
+			return errors.Wrap(err, "failed to normalize migration history list")
+		}
 	}
 	return nil
 }
