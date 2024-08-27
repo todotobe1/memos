@@ -24,7 +24,7 @@ FROM alpine:latest AS monolithic
 WORKDIR /usr/local/memos
 
 RUN apk add --no-cache tzdata
-ENV TZ="UTC"
+ENV TZ="Asia/Shanghai"
 
 COPY --from=backend /backend-build/memos /usr/local/memos/
 
